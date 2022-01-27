@@ -9,7 +9,6 @@ const RefreshButton = () => (
       viewBox="0 0 24 24"
       stroke="currentColor">
       <path
-        color="white"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
