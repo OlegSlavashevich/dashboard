@@ -1,7 +1,15 @@
 import './App.css';
+import { QueryClient, QueryClientProvider } from 'react-query';
+// import Currency from './components/Currensy';
+
+const queryClient = new QueryClient();
 
 function App() {
-  return <div className="flex justify-center items-center h-[100vh]">Test</div>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      {JSON.stringify(process.env, null, 2)}
+    </QueryClientProvider>
+  );
 }
 
 export default App;
