@@ -3,24 +3,34 @@ import WidgetControler from './WidgetControler';
 
 const widgetsConfig = [
   {
-    id: 1,
+    id: 'currency_1',
     type: 'currency',
-    text: 'Currency'
+    params: {
+      base: 'EUR',
+      target: 'USD'
+    }
   },
   {
-    id: 2,
+    id: 'weather_1',
     type: 'weather',
-    text: 'Weather'
+    params: {
+      city: 'Minsk'
+    }
   },
   {
-    id: 3,
-    type: 'radio',
-    text: 'Radio'
+    id: 'currency_2',
+    type: 'currency',
+    params: {
+      base: 'USD',
+      target: 'EUR'
+    }
   },
   {
-    id: 4,
-    type: 'radio',
-    text: 'Radio'
+    id: 'weather_2',
+    type: 'weather',
+    params: {
+      city: 'London'
+    }
   }
 ];
 

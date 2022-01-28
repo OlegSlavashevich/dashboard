@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Widget = ({ children }) => {
+const Widget = ({ children, refetch }) => {
   return (
     <div className="shadow-lg px-4 py-1 bg-white w-72 h-[12rem] rounded-lg border border-inherit border-slate-100">
-      <WidgetHeader />
+      <WidgetHeader refetch={refetch} />
       {children}
     </div>
   );
 };
 
-const WidgetHeader = () => (
+const WidgetHeader = ({ refetch }) => (
   <div className="flex h-[3rem]">
     <button>
       <svg
@@ -21,7 +21,7 @@ const WidgetHeader = () => (
         <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
       </svg>
     </button>
-    <button className="ml-auto">
+    <button className="ml-auto" onClick={refetch}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-6 w-6"

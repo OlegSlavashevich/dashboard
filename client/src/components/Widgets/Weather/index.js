@@ -1,13 +1,45 @@
-import React from 'react';
+/* eslint-disable no-undef */
+import React, { useEffect } from 'react';
 import Widget from '../../UI/Widget';
+import { useQuery } from 'react-query';
+import { useWidget } from '../../../contexts/WidgetContext';
+
+/**
+  config: {
+    id: number,
+    type: 'string (currency | ...)',
+    params: {
+      city: 'minsk'
+    }
+  }
+*/
+
+const fetchWeather = (city) => () => {
+  return fetch(`${process.env.REACT_APP_BACKEND}/api/weather?city=${city}`)
+    .then((res) => res.json())
+    .then((data) => data.temp);
+};
 
 const Weather = (config) => {
+  const { update } = useWidget();
+
+  const { isFetching, data, refetch } = useQuery(config.id, fetchWeather(config.params.city), {
+    refetchOnWindowFocus: false,
+    enabled: false
+  });
+
+  useEffect(() => {
+    refetch();
+  }, [update]);
+
   return (
-    <Widget>
-      <div className="flex justify-center">
-        <div>Minsk</div>
+    <Widget refetch={refetch}>
+      <div className="flex justify-center mt-2">
+        <div>{config.params.city}</div>
       </div>
-      {config.text}
+      <div className="flex h-16 justify-center items-center">
+        <div>{isFetching ? 'Loading...' : <>{data} °C</>}</div>
+      </div>
     </Widget>
   );
 };

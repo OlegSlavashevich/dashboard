@@ -1,27 +1,52 @@
-import React from 'react';
+/* eslint-disable no-undef */
+import React, { useEffect } from 'react';
 import Widget from '../../UI/Widget';
-// import { useQuery } from 'react-query';
+import { useQuery } from 'react-query';
+import { useWidget } from '../../../contexts/WidgetContext';
 
 /**
   config: {
     id: number,
     type: 'string (currency | ...)',
-    data: {
-      ....
+    params: {
+      base: 'USD',
+      target: 'EUR',
     }
   }
- */
+*/
+
+const fetchCurrency = (base, target) => () => {
+  return fetch(`${process.env.REACT_APP_BACKEND}/api/currency?base=${base}&target=${target}`)
+    .then((res) => res.json())
+    .then((data) => data.ratio);
+};
 
 const Currency = (config) => {
-  // const { data } = useQuery('currency', () =>
-  //   fetch('https://www.nbrb.by/api/exrates/currencies').then((res) => res.json())
-  // );
+  const { update } = useWidget();
+
+  const { isFetching, data, refetch } = useQuery(
+    config.id,
+    fetchCurrency(config.params.base, config.params.target),
+    {
+      refetchOnWindowFocus: false,
+      enabled: false
+    }
+  );
+
+  useEffect(() => {
+    refetch();
+  }, [update]);
+
   return (
-    <Widget>
-      <div className="flex justify-center">
-        <div>EUR / USD</div>
+    <Widget refetch={refetch}>
+      <div className="flex justify-center mt-2">
+        <div>
+          {config.params.base} / {config.params.target}
+        </div>
       </div>
-      {config.text}
+      <div className="flex h-16 justify-center items-center">
+        <div>{isFetching ? 'Loading...' : data}</div>
+      </div>
     </Widget>
   );
 };
