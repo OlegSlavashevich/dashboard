@@ -33,7 +33,7 @@ const Weather = (config) => {
   }, [update]);
 
   return (
-    <Widget refetch={refetch}>
+    <Widget refetch={refetch} id={config.id}>
       <div className="flex justify-center mt-2">
         <div>{config.params.city}</div>
       </div>

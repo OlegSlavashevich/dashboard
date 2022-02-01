@@ -3,6 +3,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const fetch = require("node-fetch");
+const fs = require("fs");
+const widgetsJSON = require("./widgets.json");
 
 const PORT = process.env.PORT || 5000;
 
@@ -14,6 +16,19 @@ const weatherApi = `https://api.openweathermap.org/data/2.5/weather?appid=2774aa
 
 app.use(express.json());
 app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
+
+app.get("/api/widgets", (req, res) => {
+  res.status(200).json(widgetsJSON);
+});
+
+app.post("/api/widgets", (req, res) => {
+  const { widgets } = req.body;
+  fs.writeFileSync(
+    `${process.cwd()}/widgets.json`,
+    JSON.stringify(widgets, null, 2)
+  );
+  res.status(200).json({ status: "ok" });
+});
 
 app.get("/api/currency", async (req, res) => {
   const { query } = req;

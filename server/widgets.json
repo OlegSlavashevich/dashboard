@@ -1,0 +1,32 @@
+[
+  {
+    "id": "weather_1",
+    "type": "weather",
+    "params": {
+      "city": "Minsk"
+    }
+  },
+  {
+    "id": "currency_2",
+    "type": "currency",
+    "params": {
+      "base": "USD",
+      "target": "EUR"
+    }
+  },
+  {
+    "id": "currency_1643713817782",
+    "type": "currency",
+    "params": {
+      "base": "CAD",
+      "target": "EUR"
+    }
+  },
+  {
+    "id": "weather_1643715072805",
+    "type": "weather",
+    "params": {
+      "city": "Vitebsk"
+    }
+  }
+]

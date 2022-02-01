@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AddWidget from '../Modals/AddWidget';
 import AddWidgetButton from './AddWidgetButton';
 import RefreshButton from './RefreshButton';
 import SaveButton from './SaveButton';
 
 const Header = () => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <nav className="border-b-2 border-gray-100 py-1">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -23,7 +26,8 @@ const Header = () => {
             </div>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <AddWidgetButton />
+            <AddWidget showModal={showModal} setShowModal={setShowModal} />
+            <AddWidgetButton onClick={() => setShowModal(true)} />
             <SaveButton />
             <RefreshButton />
           </div>

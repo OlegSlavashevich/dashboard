@@ -3,7 +3,7 @@ import Widget from '../../UI/Widget';
 
 const Radio = (config) => {
   return (
-    <Widget>
+    <Widget id={config.id}>
       <div className="flex justify-center">
         <div>Jazz Radio</div>
       </div>
