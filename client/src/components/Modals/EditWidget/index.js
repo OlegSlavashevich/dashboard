@@ -11,7 +11,7 @@ const EditWidget = (props) => {
   const { updateWidget } = useWidget();
 
   const [widgetParams, setWidgetParams] = useState();
-  const [refetchInterval, setRefreshInterval] = useState(0);
+  const [refetchInterval, setRefreshInterval] = useState();
 
   const onSave = () => {
     updateWidget({
