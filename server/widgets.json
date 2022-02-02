@@ -2,6 +2,7 @@
   {
     "id": "weather_1",
     "type": "weather",
+    "refetchInterval": 60000,
     "params": {
       "city": "Minsk"
     }
@@ -9,6 +10,7 @@
   {
     "id": "currency_2",
     "type": "currency",
+    "refetchInterval": 60000,
     "params": {
       "base": "USD",
       "target": "EUR"
@@ -17,16 +19,18 @@
   {
     "id": "currency_1643713817782",
     "type": "currency",
+    "refetchInterval": 60000,
     "params": {
       "base": "CAD",
-      "target": "EUR"
+      "target": "USD"
     }
   },
   {
-    "id": "weather_1643715072805",
+    "id": "weather_1643793633253",
     "type": "weather",
+    "refetchInterval": 0,
     "params": {
-      "city": "Vitebsk"
+      "city": "Brest"
     }
   }
 ]

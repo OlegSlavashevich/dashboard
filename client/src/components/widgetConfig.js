@@ -14,3 +14,11 @@ export const widgetsConfigView = {
   currency: CurrencyConfig,
   weather: WeatherConfig
 };
+
+export const widgetRefetchIntevalAccordance = {
+  none: 0,
+  '5 sec': 5000,
+  '30 sec': 30 * 1000,
+  '1 min': 60 * 1000,
+  '10 min': 10 * 60 * 1000
+};

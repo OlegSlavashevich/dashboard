@@ -3,19 +3,26 @@ import { useWidget } from '../../../contexts/WidgetContext';
 import Modal from '../../UI/Modal';
 import Select from '../../UI/Select';
 import WidgetConfigControler from '../../WidgetConfigView/WidgetConfigController';
+import { widgetRefetchIntevalAccordance } from '../../widgetConfig';
 
 function AddWidget(props) {
   const { addWidgetConfig } = useWidget();
 
   const [widgetType, setWidgetType] = useState('currency');
+  const [refetchInterval, setRefreshInterval] = useState(0);
   const [widgetParams, setWidgetParams] = useState();
 
   const onSave = () => {
     addWidgetConfig({
       id: `${widgetType}_${new Date().getTime()}`,
       type: widgetType,
+      refetchInterval,
       params: widgetParams
     });
+  };
+
+  const onChangeInterval = (interval) => {
+    setRefreshInterval(widgetRefetchIntevalAccordance[interval]);
   };
 
   useEffect(() => {
@@ -32,6 +39,8 @@ function AddWidget(props) {
             <WidgetConfigControler type={widgetType} setWidgetParams={setWidgetParams} />
           )}
         </div>
+        <p className="mt-4 mb-2">Choose update time:</p>
+        <Select options={Object.keys(widgetRefetchIntevalAccordance)} onChange={onChangeInterval} />
       </div>
     </Modal>
   );

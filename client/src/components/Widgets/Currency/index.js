@@ -29,7 +29,7 @@ const Currency = (config) => {
     fetchCurrency(config.params.base, config.params.target),
     {
       refetchOnWindowFocus: false,
-      enabled: false
+      refetchInterval: config?.refetchInterval || 0
     }
   );
 

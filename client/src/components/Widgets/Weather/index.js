@@ -25,7 +25,7 @@ const Weather = (config) => {
 
   const { isFetching, data, refetch } = useQuery(config.id, fetchWeather(config.params.city), {
     refetchOnWindowFocus: false,
-    enabled: false
+    refetchInterval: config?.refetchInterval || 0
   });
 
   useEffect(() => {
