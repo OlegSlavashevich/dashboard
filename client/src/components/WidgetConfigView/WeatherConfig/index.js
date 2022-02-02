@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import Select from '../../UI/Select';
 
-const WeatherConfig = ({ setWidgetParams }) => {
-  const [city, setCity] = useState('EUR');
+const WeatherConfig = ({ defaultParams, setWidgetParams }) => {
+  const [city, setCity] = useState(defaultParams?.city || 'Minsk');
 
   useEffect(() => {
     setWidgetParams({
@@ -15,7 +15,11 @@ const WeatherConfig = ({ setWidgetParams }) => {
     <div>
       <div>
         <div className="mb-2">City:</div>
-        <Select options={['Minsk', 'Brest', 'Grodno', 'Vitebsk']} onChange={setCity} />
+        <Select
+          options={['Minsk', 'Brest', 'Grodno', 'Vitebsk']}
+          selected={defaultParams?.city || 'Minsk'}
+          onChange={setCity}
+        />
       </div>
     </div>
   );

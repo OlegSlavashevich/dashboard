@@ -42,6 +42,12 @@ export const WidgetProvider = ({ children }) => {
     setWidgetsConfig((widgetsConfig) => [...widgetsConfig].filter((widget) => widget.id !== id));
   };
 
+  const updateWidget = (newWidget) => {
+    setWidgetsConfig((widgetsConfig) =>
+      [...widgetsConfig].map((widget) => (widget.id !== newWidget.id ? widget : newWidget))
+    );
+  };
+
   useEffect(getWidgetsConfigFromApi, []);
 
   return (
@@ -50,6 +56,7 @@ export const WidgetProvider = ({ children }) => {
         widgetsConfig,
         addWidgetConfig,
         deleteWidget,
+        updateWidget,
         isLoading,
         isSaveDashboard,
         setIsSaveDashboard,
