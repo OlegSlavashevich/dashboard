@@ -12,10 +12,8 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <WidgetProvider>
         <Header />
-        <div className="content">
-          <div className="p-12">
-            <WidgetList />
-          </div>
+        <div className="content p-12">
+          <WidgetList />
         </div>
       </WidgetProvider>
     </QueryClientProvider>

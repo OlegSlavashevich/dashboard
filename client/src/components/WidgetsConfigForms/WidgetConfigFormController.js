@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { widgetsConfigView } from '../widgetConfig';
+import { widgetsConfigView } from '../../configs/widgetConfig';
 
-const WidgetConfigControler = (props) => {
+const WidgetConfigFormControler = (props) => {
   const type = props.type;
 
   const Component = widgetsConfigView[type];
@@ -10,4 +10,4 @@ const WidgetConfigControler = (props) => {
   return <Component {...props} />;
 };
 
-export default WidgetConfigControler;
+export default WidgetConfigFormControler;

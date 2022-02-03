@@ -1,19 +1,26 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import { useWidget } from '../../../contexts/WidgetContext';
 import Modal from '../../UI/Modal';
 import Select from '../../UI/Select';
-import WidgetConfigControler from '../../WidgetConfigView/WidgetConfigController';
-import { widgetRefetchIntevalAccordance } from '../../widgetConfig';
+import WidgetConfigControler from '../../WidgetsConfigForms/WidgetConfigFormController';
+import { widgetRefetchIntevalAccordance } from '../../../configs/widgetConfig';
 
 function AddWidget(props) {
-  const { addWidgetConfig } = useWidget();
+  const { addWidget } = useWidget();
 
   const [widgetType, setWidgetType] = useState('currency');
   const [refetchInterval, setRefreshInterval] = useState(0);
   const [widgetParams, setWidgetParams] = useState();
 
   const onSave = () => {
-    addWidgetConfig({
+    console.log({
+      id: `${widgetType}_${new Date().getTime()}`,
+      type: widgetType,
+      refetchInterval,
+      params: widgetParams
+    });
+    addWidget({
       id: `${widgetType}_${new Date().getTime()}`,
       type: widgetType,
       refetchInterval,
@@ -26,8 +33,11 @@ function AddWidget(props) {
   };
 
   useEffect(() => {
-    setWidgetParams(undefined);
-  }, [widgetType]);
+    if (!props.showModal) {
+      setWidgetParams(undefined);
+      setWidgetType('currency');
+    }
+  }, [props.showModal]);
 
   return (
     <Modal {...props} title={'Add Widget'} onSave={onSave}>

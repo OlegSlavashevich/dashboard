@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
+import { currencys } from '../../../configs/widgetConfig';
 import Select from '../../UI/Select';
 
-const CurrencyConfig = ({ defaultParams, setWidgetParams }) => {
+const CurrencyConfigForm = ({ defaultParams, setWidgetParams }) => {
   const [base, setBase] = useState(defaultParams?.base || 'EUR');
   const [target, setTarget] = useState(defaultParams?.target || 'USD');
 
@@ -18,16 +19,16 @@ const CurrencyConfig = ({ defaultParams, setWidgetParams }) => {
       <div className="">
         <div className="mb-2">From:</div>
         <Select
-          options={['EUR', 'USD', 'CAD', 'JPY']}
-          selected={defaultParams?.base || 'EUR'}
+          options={currencys}
+          selected={defaultParams?.base || currencys[0]}
           onChange={setBase}
         />
       </div>
       <div className="mt-2">
         <div className="mb-2">To:</div>
         <Select
-          options={['USD', 'EUR', 'CAD', 'JPY']}
-          selected={defaultParams?.target || 'USD'}
+          options={currencys}
+          selected={defaultParams?.target || currencys[1]}
           onChange={setTarget}
         />
       </div>
@@ -35,4 +36,4 @@ const CurrencyConfig = ({ defaultParams, setWidgetParams }) => {
   );
 };
 
-export default CurrencyConfig;
+export default CurrencyConfigForm;

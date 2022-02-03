@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { widgets } from '../widgetConfig';
+import { widgets } from '../../configs/widgetConfig';
 
 const WidgetControler = (props) => {
   const type = props.type;

@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { useWidget } from '../../../contexts/WidgetContext';
 import Modal from '../../UI/Modal';
-import WidgetConfigControler from '../../WidgetConfigView/WidgetConfigController';
 import Select from '../../UI/Select';
-import { widgetRefetchIntevalAccordance } from '../../widgetConfig';
+import WidgetConfigControler from '../../WidgetsConfigForms/WidgetConfigFormController';
+import { widgetRefetchIntevalAccordance } from '../../../configs/widgetConfig';
 
 const EditWidget = (props) => {
   const { widget } = props;

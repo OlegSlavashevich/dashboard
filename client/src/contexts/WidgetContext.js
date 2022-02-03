@@ -9,52 +9,52 @@ export const useWidget = () => {
 };
 
 export const WidgetProvider = ({ children }) => {
-  const [widgetsConfig, setWidgetsConfig] = useState(undefined);
+  const [widgets, setWidgets] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
   const [isSaveDashboard, setIsSaveDashboard] = useState(false);
   const [update, setUpdate] = useState(false);
 
-  const getWidgetsConfigFromApi = async () => {
+  const getWidgetsFromApi = async () => {
     setIsLoading(true);
-    const widgets = await fetch(`${process.env.REACT_APP_BACKEND}/api/widgets`).then((res) =>
+    const widgetsFromApi = await fetch(`${process.env.REACT_APP_BACKEND}/api/widgets`).then((res) =>
       res.json()
     );
-    setWidgetsConfig(widgets);
+    setWidgets(widgetsFromApi);
     setIsLoading(false);
   };
 
-  const setWidgetsConfigToApi = async () => {
+  const setWidgetsToApi = async () => {
     await fetch(`${process.env.REACT_APP_BACKEND}/api/widgets`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ widgets: widgetsConfig })
+      body: JSON.stringify({ widgets })
     });
   };
 
-  const addWidgetConfig = (widgetConfig) => {
-    setWidgetsConfig((widgetConfigList) => [...widgetConfigList, widgetConfig]);
+  const addWidget = (widget) => {
+    setWidgets((widgets) => [...widgets, widget]);
     setIsSaveDashboard(true);
   };
 
   const deleteWidget = (id) => {
-    setWidgetsConfig((widgetsConfig) => [...widgetsConfig].filter((widget) => widget.id !== id));
+    setWidgets((widgets) => [...widgets].filter((widget) => widget.id !== id));
   };
 
   const updateWidget = (newWidget) => {
-    setWidgetsConfig((widgetsConfig) =>
-      [...widgetsConfig].map((widget) => (widget.id !== newWidget.id ? widget : newWidget))
+    setWidgets((widgets) =>
+      [...widgets].map((widget) => (widget.id !== newWidget.id ? widget : newWidget))
     );
   };
 
-  useEffect(getWidgetsConfigFromApi, []);
+  useEffect(getWidgetsFromApi, []);
 
   return (
     <WidgetContext.Provider
       value={{
-        widgetsConfig,
-        addWidgetConfig,
+        widgets,
+        addWidget,
         deleteWidget,
         updateWidget,
         isLoading,
@@ -62,7 +62,7 @@ export const WidgetProvider = ({ children }) => {
         setIsSaveDashboard,
         update,
         setUpdate,
-        setWidgetsConfigToApi
+        setWidgetsToApi
       }}>
       {children}
     </WidgetContext.Provider>

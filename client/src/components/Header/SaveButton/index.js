@@ -2,10 +2,10 @@ import React from 'react';
 import { useWidget } from '../../../contexts/WidgetContext';
 
 const SaveButton = () => {
-  const { isSaveDashboard, setIsSaveDashboard, setWidgetsConfigToApi } = useWidget();
+  const { isSaveDashboard, setIsSaveDashboard, setWidgetsToApi } = useWidget();
 
   const saveDashboard = async () => {
-    await setWidgetsConfigToApi();
+    await setWidgetsToApi();
     setIsSaveDashboard(false);
   };
 
