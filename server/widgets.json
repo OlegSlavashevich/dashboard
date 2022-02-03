@@ -1,6 +1,24 @@
 [
   {
-    "id": "weather_1",
+    "id": "currency_1643886262158",
+    "type": "currency",
+    "refetchInterval": 30000,
+    "params": {
+      "base": "EUR",
+      "target": "USD"
+    }
+  },
+  {
+    "id": "currency_1643886282071",
+    "type": "currency",
+    "refetchInterval": 60000,
+    "params": {
+      "base": "JPY",
+      "target": "USD"
+    }
+  },
+  {
+    "id": "weather_1643886290692",
     "type": "weather",
     "refetchInterval": 60000,
     "params": {
@@ -8,29 +26,32 @@
     }
   },
   {
-    "id": "currency_2",
+    "id": "currency_1643887122922",
     "type": "currency",
-    "refetchInterval": 60000,
+    "refetchInterval": 0,
     "params": {
-      "base": "USD",
+      "base": "CAD",
       "target": "EUR"
     }
   },
   {
-    "id": "currency_1643713817782",
-    "type": "currency",
-    "refetchInterval": 60000,
+    "id": "radio_1643911550104",
+    "type": "radio",
     "params": {
-      "base": "CAD",
-      "target": "USD"
+      "genre": "disco",
+      "id": "68269f39-1460-4d05-8f4c-919951183345",
+      "name": "Promodj Too Nu",
+      "url": "http://radio.promodj.com/toonu-192"
     }
   },
   {
-    "id": "weather_1643793633253",
-    "type": "weather",
-    "refetchInterval": 5000,
+    "id": "radio_1643911673281",
+    "type": "radio",
     "params": {
-      "city": "Vitebsk"
+      "genre": "dance",
+      "id": "37ae50d8-0d6b-43a1-b580-87d7effd86e5",
+      "name": "101,ru Russian Dance",
+      "url": "https://pub0302.101.ru:8443/stream/trust/mp3/128/17?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpcCI6IjQ5LjM3LjE1MS42IiwidXNlcmFnZW50IjoiTW96aWxsYVwvNS4wIChYMTE7IExpbnV4IHg4Nl82NDsgcnY6ODguMCkgR2Vja29cLzIwMTAwMTAxIEZpcmVmb3hcLzg4LjAiLCJ1aWRfY2hhbm5lbCI6IjE3IiwidHlwZV9jaGFubmVsIjoiY2hhbm5lbCIsImV4cCI6MTYxODUwMTYyM30.vsWQ1s12RL1P3yuD4Eb6E2Og6YaLbXceO-cfhhhwl5s"
     }
   }
 ]

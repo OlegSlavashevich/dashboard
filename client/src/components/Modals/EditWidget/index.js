@@ -45,16 +45,20 @@ const EditWidget = (props) => {
             />
           )}
         </div>
-        <p className="mt-4 mb-2">Choose update time:</p>
-        <Select
-          options={Object.keys(widgetRefetchIntevalAccordance)}
-          selected={
-            widget.refetchInterval
-              ? getKeyByValue(widgetRefetchIntevalAccordance, widget.refetchInterval)
-              : 'none'
-          }
-          onChange={onChangeInterval}
-        />
+        {widget.type !== 'radio' && (
+          <>
+            <p className="mt-4 mb-2">Choose update time:</p>
+            <Select
+              options={Object.keys(widgetRefetchIntevalAccordance)}
+              selected={
+                widget.refetchInterval
+                  ? getKeyByValue(widgetRefetchIntevalAccordance, widget.refetchInterval)
+                  : 'none'
+              }
+              onChange={onChangeInterval}
+            />
+          </>
+        )}
       </div>
     </Modal>
   );

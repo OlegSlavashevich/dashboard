@@ -1,0 +1,39 @@
+.rhap_container {
+  @apply bg-transparent shadow-none w-fit;
+}
+
+.rhap_volume-controls {
+  @apply w-full justify-center;
+}
+
+.rhap_controls-section {
+  @apply flex-col w-full;
+}
+
+.rhap_container {
+  @apply p-0;
+}
+
+.rhap_container svg {
+  @apply h-16 w-16;
+}
+
+.rhap_main-controls-button {
+  @apply h-16 w-16;
+}
+
+.rhap_volume-button {
+  @apply w-7 h-7;
+}
+/* 
+.rhap_volume-indicator {
+  @apply;
+}
+
+.rhap_volume-bar {
+  @apply;
+} */
+
+.rhap_play-pause-button {
+  @apply h-16 w-16;
+}

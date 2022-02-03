@@ -1,8 +1,9 @@
 import Currency from '../components/Widgets/Currency';
 import Weather from '../components/Widgets/Weather';
 import Radio from '../components/Widgets/Radio';
-import CurrencyConfig from '../components/WidgetsConfigForms/CurrencyConfigForm';
-import WeatherConfig from '../components/WidgetsConfigForms/WeatherConfigForm';
+import CurrencyConfigForm from '../components/WidgetsConfigForms/CurrencyConfigForm';
+import WeatherConfigForm from '../components/WidgetsConfigForms/WeatherConfigForm';
+import RadioConfigForm from '../components/WidgetsConfigForms/RadioConfigForm';
 
 export const widgets = {
   currency: Currency,
@@ -11,13 +12,34 @@ export const widgets = {
 };
 
 export const widgetsConfigView = {
-  currency: CurrencyConfig,
-  weather: WeatherConfig
+  currency: CurrencyConfigForm,
+  weather: WeatherConfigForm,
+  radio: RadioConfigForm
 };
 
 export const cities = ['Minsk', 'Brest', 'Grodno', 'Vitebsk'];
 
 export const currencys = ['EUR', 'USD', 'CAD', 'JPY'];
+
+export const genres = [
+  'all',
+  'classical',
+  'country',
+  'dance',
+  'disco',
+  'house',
+  'jazz',
+  'pop',
+  'rap',
+  'retro',
+  'rock'
+];
+
+export const getStationsApiConfig = (genre) => ({
+  language: 'russian',
+  tag: genre || 'all',
+  limit: 30
+});
 
 export const widgetRefetchIntevalAccordance = {
   none: 0,
