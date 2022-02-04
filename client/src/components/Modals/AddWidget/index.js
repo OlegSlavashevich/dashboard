@@ -4,7 +4,10 @@ import { useWidget } from '../../../contexts/WidgetContext';
 import Modal from '../../UI/Modal';
 import Select from '../../UI/Select';
 import WidgetConfigControler from '../../WidgetsConfigForms/WidgetConfigFormController';
-import { widgetRefetchIntevalAccordance } from '../../../configs/widgetConfig';
+import {
+  widgetRefetchIntevalAccordance,
+  widgetsWithoutUpdate
+} from '../../../configs/widgetConfig';
 import { widgets } from '../../../configs/widgetConfig';
 
 function AddWidget(props) {
@@ -44,7 +47,7 @@ function AddWidget(props) {
             <WidgetConfigControler type={widgetType} setWidgetParams={setWidgetParams} />
           )}
         </div>
-        {widgetType !== 'radio' && (
+        {!widgetsWithoutUpdate.includes(widgetType) && (
           <>
             <p className="mt-4 mb-2">Choose update time:</p>
             <Select

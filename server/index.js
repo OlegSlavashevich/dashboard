@@ -5,6 +5,7 @@ const cors = require("cors");
 const fetch = require("node-fetch");
 const fs = require("fs");
 const widgetsJSON = require("./widgets.json");
+const { pizzaScrapper } = require("./scrapper");
 
 const PORT = process.env.PORT || 5000;
 
@@ -60,6 +61,17 @@ app.get("/api/weather", async (req, res) => {
     res.status(200).json(weather);
   } catch (error) {
     res.status(500).json({ error });
+  }
+});
+
+app.get("/api/pizza", async (req, res) => {
+  try {
+    const { name } = req.query;
+    const imageBuffer = await pizzaScrapper(name);
+    res.send(imageBuffer);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json(error);
   }
 });
 

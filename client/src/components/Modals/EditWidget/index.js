@@ -4,7 +4,10 @@ import { useWidget } from '../../../contexts/WidgetContext';
 import Modal from '../../UI/Modal';
 import Select from '../../UI/Select';
 import WidgetConfigControler from '../../WidgetsConfigForms/WidgetConfigFormController';
-import { widgetRefetchIntevalAccordance } from '../../../configs/widgetConfig';
+import {
+  widgetRefetchIntevalAccordance,
+  widgetsWithoutUpdate
+} from '../../../configs/widgetConfig';
 
 const EditWidget = (props) => {
   const { widget } = props;
@@ -45,7 +48,7 @@ const EditWidget = (props) => {
             />
           )}
         </div>
-        {widget.type !== 'radio' && (
+        {!widgetsWithoutUpdate.includes(widget.type) && (
           <>
             <p className="mt-4 mb-2">Choose update time:</p>
             <Select

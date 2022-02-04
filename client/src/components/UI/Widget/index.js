@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import { widgetsWithoutUpdate } from '../../../configs/widgetConfig';
 import { useWidget } from '../../../contexts/WidgetContext';
 import EditWidget from '../../Modals/EditWidget';
 
@@ -24,7 +25,7 @@ const Widget = ({ children, refetch, config }) => {
   );
 };
 
-const WidgetHeader = ({ refetch, deleteWidget, config, setIsSaveDashboard }) => {
+const WidgetHeader = ({ refetch = () => {}, deleteWidget, config, setIsSaveDashboard }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -34,6 +35,7 @@ const WidgetHeader = ({ refetch, deleteWidget, config, setIsSaveDashboard }) => 
         showModal={showModal}
         setShowModal={setShowModal}
         onChange={() => {
+          console.log('change');
           refetch();
           setIsSaveDashboard(true);
         }}
@@ -48,7 +50,7 @@ const WidgetHeader = ({ refetch, deleteWidget, config, setIsSaveDashboard }) => 
         </svg>
       </button>
       <div className="mt-3 ml-auto">
-        {config.type !== 'radio' && (
+        {!widgetsWithoutUpdate.includes(config.type) && (
           <button className="" onClick={refetch}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

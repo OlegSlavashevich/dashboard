@@ -4,7 +4,7 @@ import Select from '../../UI/Select';
 import { genres } from '../../../configs/widgetConfig';
 
 const RadioConfigForm = ({ defaultParams, setWidgetParams }) => {
-  const [genre, setGenre] = useState(defaultParams?.genre || 'pop');
+  const [genre, setGenre] = useState(defaultParams?.genre || 'all');
 
   useEffect(() => {
     setWidgetParams({

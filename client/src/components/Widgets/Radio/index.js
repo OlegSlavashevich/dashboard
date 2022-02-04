@@ -33,7 +33,6 @@ const Radio = (config) => {
   }, [config?.params?.genre]);
 
   useEffect(() => {
-    console.log(currentStationPosition);
     if (
       stations &&
       currentStationPosition >= 0 &&
@@ -74,7 +73,6 @@ const Radio = (config) => {
   };
 
   const changeCurrentStationPosition = (action) => {
-    console.log(action);
     if (action === 'inc') {
       setCurrentStationPosition((position) => position + 1);
     } else {
