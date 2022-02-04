@@ -82,16 +82,16 @@ const Radio = (config) => {
 
   const radioName = useMemo(
     () =>
-      (config?.params?.name?.length > 15
-        ? config?.params?.name.slice(0, 15) + '...'
+      (config?.params?.name?.length > 20
+        ? config?.params?.name.slice(0, 20) + '...'
         : config?.params?.name) || 'Radio',
     [config?.params?.name]
   );
 
   return (
     <Widget config={config}>
-      <div className="flex justify-center mb-2">
-        <div className="mr-2">{config.params.genre}</div>
+      <div className="flex justify-center items-center mb-2 flex-col">
+        <div className="">{config.params.genre}</div>
         <div>{radioName}</div>
       </div>
       {stations ? (

@@ -39,6 +39,21 @@ export const genres = [
   'rock'
 ];
 
+export const pizzas = [
+  'Изи Фризи',
+  'Чеддерони',
+  'Карбонарахит',
+  'Чикен Ранч',
+  'Мексиканская',
+  'Прованс',
+  'Мюнхенская',
+  'Ривьера',
+  'Фермерская',
+  'Маргарита',
+  'Пепперони',
+  'Лесная'
+];
+
 export const widgetsWithoutUpdate = ['radio', 'pizza'];
 
 export const getStationsApiConfig = (genre) => ({
@@ -54,18 +69,3 @@ export const widgetRefetchIntevalAccordance = {
   '1 min': 60 * 1000,
   '10 min': 10 * 60 * 1000
 };
-
-export const pizzas = [
-  'Изи Фризи',
-  'Чеддерони',
-  'Карбонарахит',
-  'Чикен Ранч',
-  'Мексиканская',
-  'Прованс',
-  'Мюнхенская',
-  'Ривьера',
-  'Фермерская',
-  'Маргарита',
-  'Пепперони',
-  'Лесная'
-];

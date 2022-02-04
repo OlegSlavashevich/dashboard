@@ -39,7 +39,7 @@ const Currency = (config) => {
 
   return (
     <Widget refetch={refetch} config={config}>
-      <div className="flex justify-center mt-2">
+      <div className="flex justify-center mt-4">
         <div>
           {config.params.base} / {config.params.target}
         </div>

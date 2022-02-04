@@ -29,7 +29,7 @@ const WidgetHeader = ({ refetch = () => {}, deleteWidget, config, setIsSaveDashb
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="flex h-[3rem]">
+    <div className="flex h-[2.7rem]">
       <EditWidget
         widget={config}
         showModal={showModal}
