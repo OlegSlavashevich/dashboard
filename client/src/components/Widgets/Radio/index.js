@@ -82,67 +82,74 @@ const Radio = (config) => {
 
   const radioName = useMemo(
     () =>
-      (config?.params?.name?.length > 20
-        ? config?.params?.name.slice(0, 20) + '...'
+      (config?.params?.name?.length > 15
+        ? config?.params?.name.slice(0, 15) + '...'
         : config?.params?.name) || 'Radio',
     [config?.params?.name]
   );
 
   return (
     <Widget config={config}>
-      <div className="flex justify-center items-center mb-2 flex-col">
-        <div className="">{config.params.genre}</div>
-        <div>{radioName}</div>
-      </div>
       {stations ? (
-        <div className="flex h-16 justify-center items-center">
-          {currentStationPosition !== 0 ? (
-            <button className="mr-4" onClick={() => changeCurrentStationPosition('dec')}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-          ) : (
-            <div className="mr-4 h-8 w-8" />
-          )}
-          <AudioPlayer
-            src={config?.params?.url}
-            showJumpControls={false}
-            layout="stacked"
-            customProgressBarSection={[]}
-            customControlsSection={[RHAP_UI.MAIN_CONTROLS]}
-            autoPlayAfterSrcChange={false}
-          />
-          {currentStationPosition !== stations.length - 1 ? (
-            <button className="ml-4" onClick={() => changeCurrentStationPosition('inc')}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          ) : (
-            <div className="ml-4 h-8 w-8" />
-          )}
-        </div>
+        <>
+          <div className="flex justify-center items-center">
+            <div className="mr-2">{radioName}</div>
+            <img
+              src={stations[currentStationPosition]?.favicon || 'radio.png'}
+              className="h-12 w-12 rounded-full"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+          <div className="flex h-16 justify-center items-center">
+            {currentStationPosition !== 0 ? (
+              <button className="mr-4" onClick={() => changeCurrentStationPosition('dec')}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+            ) : (
+              <div className="mr-4 h-8 w-8" />
+            )}
+            <AudioPlayer
+              src={config?.params?.url}
+              showJumpControls={false}
+              layout="stacked"
+              customProgressBarSection={[]}
+              customControlsSection={[RHAP_UI.MAIN_CONTROLS]}
+              autoPlayAfterSrcChange={false}
+            />
+            {currentStationPosition !== stations.length - 1 ? (
+              <button className="ml-4" onClick={() => changeCurrentStationPosition('inc')}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            ) : (
+              <div className="ml-4 h-8 w-8" />
+            )}
+          </div>
+        </>
       ) : (
         <div className="flex h-16 justify-center items-center">Loading...</div>
       )}

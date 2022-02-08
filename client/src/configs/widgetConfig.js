@@ -39,20 +39,23 @@ export const genres = [
   'rock'
 ];
 
-export const pizzas = [
-  'Изи Фризи',
-  'Чеддерони',
-  'Карбонарахит',
-  'Чикен Ранч',
-  'Мексиканская',
-  'Прованс',
-  'Мюнхенская',
-  'Ривьера',
-  'Фермерская',
-  'Маргарита',
-  'Пепперони',
-  'Лесная'
-];
+export const pizzasImages = {
+  'Изи Фризи': 'https://images.dominos.by/media/dominos/osg/api/2021/10/14/izi_frizi_small.png',
+  Чеддерони: 'https://images.dominos.by/media/dominos/osg/api/2021/10/14/chedderoni_small.png',
+  Карбонарахит: 'https://images.dominos.by/media/dominos/osg/api/2018/09/12/carbonara.png',
+  'Чикен Ранч': 'https://images.dominos.by/media/dominos/osg/api/2020/11/18/chiken_fresh_small.png',
+  Мексиканская:
+    'https://images.dominos.by/media/dominos/osg/api/2021/06/10/meksikanskaya_small.png',
+  Прованс: 'https://images.dominos.by/media/dominos/osg/api/2018/09/12/provence.png',
+  Мюнхенская: 'https://images.dominos.by/media/dominos/osg/api/2019/07/03/myunkhenskaya_small.png',
+  Ривьера: 'https://images.dominos.by/media/dominos/osg/api/2021/03/23/rivyera_small_mNcDSaS.png',
+  Фермерская: 'https://images.dominos.by/media/dominos/osg/api/2019/10/18/fermerskaya_small.png',
+  Маргарита: 'https://images.dominos.by/media/dominos/osg/api/2018/09/12/margarita.png',
+  Пепперони: 'https://images.dominos.by/media/dominos/osg/api/2018/09/12/pepperoni.png',
+  Лесная: 'https://images.dominos.by/media/dominos/osg/api/2020/11/18/lesnaya_small.png'
+};
+
+export const pizzas = Object.keys(pizzasImages);
 
 export const widgetsWithoutUpdate = ['radio', 'pizza'];
 

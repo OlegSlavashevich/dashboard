@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
-import React from 'react';
+import React, { useEffect } from 'react';
 import Widget from '../../UI/Widget';
 import { useQuery } from 'react-query';
+import { pizzasImages } from '../../../configs/widgetConfig';
 
 /**
   config: {
@@ -41,20 +42,21 @@ const fetchPizza = (name) => () => {
 };
 
 const Pizza = (config) => {
-  const { isFetching, data, refetch } = useQuery(config.id, fetchPizza(config.params.name), {
+  const { isFetching, refetch } = useQuery(config.id, fetchPizza(config.params.name), {
     refetchOnWindowFocus: false,
     enabled: false
   });
 
-  console.log(data);
+  useEffect(() => {});
 
   return (
     <Widget config={config}>
-      <div className="flex justify-center mt-2">
+      <div className="flex justify-center">
         <div>{config.params.name}</div>
       </div>
       <div className="flex h-16 justify-center items-center">
-        <div>
+        <div className="flex justify-center items-center mt-12">
+          <img src={pizzasImages[config.params.name]} className="h-[6rem] mr-8" />
           {isFetching ? (
             'Loading...'
           ) : (

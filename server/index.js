@@ -13,7 +13,7 @@ const currencyApi = `https://freecurrencyapi.net/api/v2/latest?apikey=${process.
 
 const app = express();
 
-const weatherApi = `https://api.openweathermap.org/data/2.5/weather?appid=2774aa372da9691f4d845dd3e9ea34c4&units=metric`;
+const weatherApi = `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.WEATHER_KEY}&units=metric`;
 
 app.use(express.json());
 app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
@@ -57,6 +57,7 @@ app.get("/api/weather", async (req, res) => {
       .then((data) => ({
         city,
         temp: data.main.temp,
+        icon: data.weather[0].icon,
       }));
     res.status(200).json(weather);
   } catch (error) {

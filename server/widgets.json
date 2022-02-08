@@ -26,15 +26,6 @@
     }
   },
   {
-    "id": "currency_1643887122922",
-    "type": "currency",
-    "refetchInterval": 0,
-    "params": {
-      "base": "CAD",
-      "target": "EUR"
-    }
-  },
-  {
     "id": "radio_1643911673281",
     "type": "radio",
     "params": {
@@ -57,6 +48,22 @@
     "refetchInterval": 0,
     "params": {
       "name": "Пепперони"
+    }
+  },
+  {
+    "id": "weather_1644309088061",
+    "type": "weather",
+    "refetchInterval": 0,
+    "params": {
+      "city": "Brest"
+    }
+  },
+  {
+    "id": "pizza_1644310655553",
+    "type": "pizza",
+    "refetchInterval": 0,
+    "params": {
+      "name": "Чеддерони"
     }
   }
 ]

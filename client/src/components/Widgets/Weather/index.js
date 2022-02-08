@@ -15,9 +15,9 @@ import { useWidget } from '../../../contexts/WidgetContext';
 */
 
 const fetchWeather = (city) => () => {
-  return fetch(`${process.env.REACT_APP_BACKEND}/api/weather?city=${city}`)
-    .then((res) => res.json())
-    .then((data) => data.temp);
+  return fetch(`${process.env.REACT_APP_BACKEND}/api/weather?city=${city}`).then((res) =>
+    res.json()
+  );
 };
 
 const Weather = (config) => {
@@ -34,11 +34,20 @@ const Weather = (config) => {
 
   return (
     <Widget refetch={refetch} config={config}>
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center">
         <div>{config.params.city}</div>
       </div>
       <div className="flex h-16 justify-center items-center">
-        <div>{isFetching ? 'Loading...' : <>{data} °C</>}</div>
+        <div>
+          {isFetching ? (
+            'Loading...'
+          ) : (
+            <>
+              <img src={`http://openweathermap.org/img/w/${data.icon}.png`} className="h-16 mt-4" />
+              <div>{data.temp} °C</div>
+            </>
+          )}
+        </div>
       </div>
     </Widget>
   );
