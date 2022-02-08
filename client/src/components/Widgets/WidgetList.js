@@ -20,6 +20,7 @@ const WidgetList = () => {
 
   const dropHandler = (e, dropWidget) => {
     e.preventDefault();
+    if (dropWidget.id === dragWidget.id) return;
     const tmpWidgets = [...widgets];
     const dragWidgetPosition = tmpWidgets.findIndex((widget) => widget.id === dragWidget.id);
     const dropWidgetPosition = tmpWidgets.findIndex((widget) => widget.id === dropWidget.id);
