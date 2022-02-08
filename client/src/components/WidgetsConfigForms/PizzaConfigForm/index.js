@@ -14,7 +14,7 @@ const PizzaConfigForm = ({ defaultParams, setWidgetParams }) => {
   return (
     <div>
       <div>
-        <div className="mb-2">City:</div>
+        <div className="mb-2">Pizza:</div>
         <Select options={pizzas} selected={defaultParams?.name || pizzas[0]} onChange={setName} />
       </div>
     </div>

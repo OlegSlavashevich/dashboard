@@ -36,21 +36,63 @@ const pizzaScrapper = async (pizza) => {
     }
   }
 
-  // await page.screenshot({
-  //   path: "test.png",
-  //   fullPage: true,
-  // });
-
   await page.goto("https://dominos.by/user/order_history");
 
   await page.click(".custom-button--primary");
 
-  // await page.screenshot({
-  //   path: "test14.jpeg",
-  //   fullPage: true,
-  // });
-
   await page.click(".custom-button");
+
+  await page.evaluate(() => {
+    const city = document.querySelector(
+      ".orders__current-order-desktop-delivery-content div:nth-child(1) > select"
+    );
+    city.innerHTML = `<option selected>Минск</option>`;
+
+    const street = document.querySelector(
+      "div.delivery-address__form-wrapper div:nth-child(1) > input"
+    );
+    street.value = "пр. Независимости";
+
+    const house = document.querySelector(
+      "div.delivery-address__form-wrapper div:nth-child(2) > input"
+    );
+    house.value = "173";
+
+    const apartment = document.querySelector(
+      "div.delivery-address__form-wrapper div:nth-child(3) > input"
+    );
+    apartment.value = "700";
+
+    const floor = document.querySelector(
+      "div.delivery-address__form-wrapper div:nth-child(4) > input"
+    );
+    floor.value = "7";
+
+    const entrance = document.querySelector(
+      "div.delivery-address__form-wrapper div:nth-child(5) > input"
+    );
+    entrance.value = "1";
+
+    const doorCode = document.querySelector(
+      "div.delivery-address__form-wrapper div:nth-child(6) > input"
+    );
+    doorCode.value = "---";
+
+    const phone = document.querySelector(
+      ".checkout__order-form-fields > div:nth-child(1) input"
+    );
+    phone.value = "+375331234567";
+
+    const email = document.querySelector(
+      ".checkout__order-form-fields > div:nth-child(2) input"
+    );
+    email.value = "test@mail.ru";
+
+    const date = document.querySelector(
+      ".checkout__order-form-fields > div:nth-child(3) input"
+    );
+    date.value = new Date().toUTCString();
+  });
 
   const imageBuffer = await page.screenshot({
     type: "jpeg",
