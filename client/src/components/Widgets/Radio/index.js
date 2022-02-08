@@ -98,7 +98,6 @@ const Radio = (config) => {
               src={stations[currentStationPosition]?.favicon || 'radio.png'}
               className="h-12 w-12 rounded-full"
               layout="fill"
-              objectFit="contain"
             />
           </div>
           <div className="flex h-16 justify-center items-center">

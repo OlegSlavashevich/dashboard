@@ -9,12 +9,13 @@
     }
   },
   {
-    "id": "currency_1643886282071",
-    "type": "currency",
-    "refetchInterval": 60000,
+    "id": "radio_1643911673281",
+    "type": "radio",
     "params": {
-      "base": "JPY",
-      "target": "USD"
+      "genre": "dance",
+      "id": "37ae50d8-0d6b-43a1-b580-87d7effd86e5",
+      "name": "101,ru Russian Dance",
+      "url": "https://pub0302.101.ru:8443/stream/trust/mp3/128/17?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpcCI6IjQ5LjM3LjE1MS42IiwidXNlcmFnZW50IjoiTW96aWxsYVwvNS4wIChYMTE7IExpbnV4IHg4Nl82NDsgcnY6ODguMCkgR2Vja29cLzIwMTAwMTAxIEZpcmVmb3hcLzg4LjAiLCJ1aWRfY2hhbm5lbCI6IjE3IiwidHlwZV9jaGFubmVsIjoiY2hhbm5lbCIsImV4cCI6MTYxODUwMTYyM30.vsWQ1s12RL1P3yuD4Eb6E2Og6YaLbXceO-cfhhhwl5s"
     }
   },
   {
@@ -26,13 +27,12 @@
     }
   },
   {
-    "id": "radio_1643911673281",
-    "type": "radio",
+    "id": "currency_1643886282071",
+    "type": "currency",
+    "refetchInterval": 60000,
     "params": {
-      "genre": "dance",
-      "id": "37ae50d8-0d6b-43a1-b580-87d7effd86e5",
-      "name": "101,ru Russian Dance",
-      "url": "https://pub0302.101.ru:8443/stream/trust/mp3/128/17?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpcCI6IjQ5LjM3LjE1MS42IiwidXNlcmFnZW50IjoiTW96aWxsYVwvNS4wIChYMTE7IExpbnV4IHg4Nl82NDsgcnY6ODguMCkgR2Vja29cLzIwMTAwMTAxIEZpcmVmb3hcLzg4LjAiLCJ1aWRfY2hhbm5lbCI6IjE3IiwidHlwZV9jaGFubmVsIjoiY2hhbm5lbCIsImV4cCI6MTYxODUwMTYyM30.vsWQ1s12RL1P3yuD4Eb6E2Og6YaLbXceO-cfhhhwl5s"
+      "base": "JPY",
+      "target": "USD"
     }
   },
   {
@@ -43,19 +43,18 @@
     }
   },
   {
-    "id": "pizza_1643969751650",
-    "type": "pizza",
-    "refetchInterval": 0,
-    "params": {
-      "name": "Пепперони"
-    }
-  },
-  {
     "id": "weather_1644309088061",
     "type": "weather",
     "refetchInterval": 0,
     "params": {
       "city": "Brest"
+    }
+  },
+  {
+    "id": "pizza_1643969751650",
+    "type": "pizza",
+    "params": {
+      "name": "Фермерская"
     }
   },
   {

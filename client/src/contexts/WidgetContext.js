@@ -54,6 +54,7 @@ export const WidgetProvider = ({ children }) => {
     <WidgetContext.Provider
       value={{
         widgets,
+        setWidgets,
         addWidget,
         deleteWidget,
         updateWidget,
