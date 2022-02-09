@@ -65,10 +65,10 @@ app.get("/api/weather", async (req, res) => {
   }
 });
 
-app.get("/api/pizza", async (req, res) => {
+app.post("/api/pizza", async (req, res) => {
   try {
-    const { name } = req.query;
-    const imageBuffer = await pizzaScrapper(name);
+    const body = req.body;
+    const imageBuffer = await pizzaScrapper(body);
     res.send(imageBuffer);
   } catch (error) {
     console.error(error);

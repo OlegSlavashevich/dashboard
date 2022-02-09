@@ -57,6 +57,8 @@ export const pizzasImages = {
 
 export const pizzas = Object.keys(pizzasImages);
 
+export const dominosCities = ['Минск', 'Брест', 'Гомель', 'Гродно', 'Витебск', 'Могилев'];
+
 export const widgetsWithoutUpdate = ['radio', 'pizza'];
 
 export const getStationsApiConfig = (genre) => ({

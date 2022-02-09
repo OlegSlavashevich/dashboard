@@ -9,13 +9,25 @@ import { pizzasImages } from '../../../configs/widgetConfig';
     id: number,
     type: 'string (currency | ...)',
     params: {
-      name: string
+      name: string,
+      city: string,
+      street: string,
+      house: string,
+      apartment: string,
+      phone: string,
+      email: string
     }
   }
 */
 
-const fetchPizza = (name) => () => {
-  return fetch(`${process.env.REACT_APP_BACKEND}/api/pizza?name=${name}`)
+const fetchPizza = (params) => () => {
+  return fetch(`${process.env.REACT_APP_BACKEND}/api/pizza?name=${params.name}`, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(params)
+  })
     .then((res) => {
       if (res.ok) {
         return res.blob();
@@ -42,7 +54,7 @@ const fetchPizza = (name) => () => {
 };
 
 const Pizza = (config) => {
-  const { isFetching, refetch } = useQuery(config.id, fetchPizza(config.params.name), {
+  const { isFetching, refetch } = useQuery(config.id, fetchPizza(config.params), {
     refetchOnWindowFocus: false,
     enabled: false
   });

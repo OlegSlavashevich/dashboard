@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 
-const pizzaScrapper = async (pizza) => {
+const pizzaScrapper = async (params) => {
   const browser = await puppeteer.launch({
     headless: true,
     executablePath:
@@ -30,7 +30,7 @@ const pizzaScrapper = async (pizza) => {
       ".product-card__title",
       (i) => i.textContent
     );
-    if (pizzaName === pizza) {
+    if (pizzaName === params.name) {
       const button = await el.$(".custom-button");
       await button.evaluate((butt) => butt.click());
     }
@@ -42,57 +42,57 @@ const pizzaScrapper = async (pizza) => {
 
   await page.click(".custom-button");
 
-  await page.evaluate(() => {
+  await page.evaluate((params) => {
     const city = document.querySelector(
       ".orders__current-order-desktop-delivery-content div:nth-child(1) > select"
     );
-    city.innerHTML = `<option selected>Минск</option>`;
+    city.innerHTML = `<option selected>${params.city}</option>`;
 
     const street = document.querySelector(
       "div.delivery-address__form-wrapper div:nth-child(1) > input"
     );
-    street.value = "пр. Независимости";
+    street.value = params.street;
 
     const house = document.querySelector(
       "div.delivery-address__form-wrapper div:nth-child(2) > input"
     );
-    house.value = "173";
+    house.value = params.house;
 
     const apartment = document.querySelector(
       "div.delivery-address__form-wrapper div:nth-child(3) > input"
     );
-    apartment.value = "700";
+    apartment.value = params.apartment;
 
-    const floor = document.querySelector(
-      "div.delivery-address__form-wrapper div:nth-child(4) > input"
-    );
-    floor.value = "7";
+    // const floor = document.querySelector(
+    //   "div.delivery-address__form-wrapper div:nth-child(4) > input"
+    // );
+    // floor.value = "1";
 
-    const entrance = document.querySelector(
-      "div.delivery-address__form-wrapper div:nth-child(5) > input"
-    );
-    entrance.value = "1";
+    // const entrance = document.querySelector(
+    //   "div.delivery-address__form-wrapper div:nth-child(5) > input"
+    // );
+    // entrance.value = "1";
 
-    const doorCode = document.querySelector(
-      "div.delivery-address__form-wrapper div:nth-child(6) > input"
-    );
-    doorCode.value = "---";
+    // const doorCode = document.querySelector(
+    //   "div.delivery-address__form-wrapper div:nth-child(6) > input"
+    // );
+    // doorCode.value = "---";
 
     const phone = document.querySelector(
       ".checkout__order-form-fields > div:nth-child(1) input"
     );
-    phone.value = "+375331234567";
+    phone.value = params.phone;
 
     const email = document.querySelector(
       ".checkout__order-form-fields > div:nth-child(2) input"
     );
-    email.value = "test@mail.ru";
+    email.value = params.email;
 
     const date = document.querySelector(
       ".checkout__order-form-fields > div:nth-child(3) input"
     );
     date.value = new Date().toUTCString();
-  });
+  }, params);
 
   const imageBuffer = await page.screenshot({
     type: "jpeg",

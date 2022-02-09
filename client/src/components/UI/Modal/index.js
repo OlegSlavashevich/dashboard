@@ -37,7 +37,7 @@ function Modal({ showModal = false, setShowModal = () => {}, title, onSave = () 
                   </button>
                 </div>
                 {/*body*/}
-                <div className="relative p-6 flex-auto">{children}</div>
+                <div className="relative p-6 flex-auto max-h-[30rem] overflow-auto">{children}</div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                   <button

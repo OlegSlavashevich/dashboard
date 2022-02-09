@@ -1,15 +1,36 @@
 [
   {
-    "id": "currency_1643886262158",
+    "id": "currency_1644394177891",
     "type": "currency",
-    "refetchInterval": 30000,
+    "refetchInterval": 0,
     "params": {
       "base": "EUR",
       "target": "USD"
     }
   },
   {
-    "id": "radio_1643911673281",
+    "id": "pizza_1644394019496",
+    "type": "pizza",
+    "params": {
+      "name": "Изи Фризи",
+      "city": "Минск",
+      "street": "Семенова",
+      "house": "20",
+      "apartment": "30",
+      "phone": "+375331234568",
+      "email": "test2@mail.ru"
+    }
+  },
+  {
+    "id": "weather_1644394182577",
+    "type": "weather",
+    "refetchInterval": 0,
+    "params": {
+      "city": "Minsk"
+    }
+  },
+  {
+    "id": "radio_1644394190811",
     "type": "radio",
     "params": {
       "genre": "dance",
@@ -19,31 +40,20 @@
     }
   },
   {
-    "id": "weather_1643886290692",
-    "type": "weather",
-    "refetchInterval": 60000,
-    "params": {
-      "city": "Minsk"
-    }
-  },
-  {
-    "id": "currency_1643886282071",
-    "type": "currency",
-    "refetchInterval": 60000,
-    "params": {
-      "base": "JPY",
-      "target": "USD"
-    }
-  },
-  {
-    "id": "pizza_1643969142696",
+    "id": "pizza_1644394222629",
     "type": "pizza",
     "params": {
-      "name": "Маргарита"
+      "name": "Пепперони",
+      "city": "Минск",
+      "street": "Денисовская",
+      "house": "20",
+      "apartment": "30",
+      "phone": "+375123",
+      "email": "test@mail.ru"
     }
   },
   {
-    "id": "weather_1644309088061",
+    "id": "weather_1644394230272",
     "type": "weather",
     "refetchInterval": 0,
     "params": {
@@ -51,18 +61,20 @@
     }
   },
   {
-    "id": "pizza_1643969751650",
-    "type": "pizza",
+    "id": "currency_1644394246095",
+    "type": "currency",
+    "refetchInterval": 0,
     "params": {
-      "name": "Фермерская"
+      "base": "USD",
+      "target": "JPY"
     }
   },
   {
-    "id": "pizza_1644310655553",
-    "type": "pizza",
+    "id": "weather_1644394376485",
+    "type": "weather",
     "refetchInterval": 0,
     "params": {
-      "name": "Чеддерони"
+      "city": "Vitebsk"
     }
   }
 ]
