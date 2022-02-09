@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Widget from '../../UI/Widget';
 import { useQuery } from 'react-query';
 import { useWidget } from '../../../contexts/WidgetContext';
+import { WidgetService } from '../../../services/WidgetService';
 
 /**
   config: {
@@ -15,9 +16,7 @@ import { useWidget } from '../../../contexts/WidgetContext';
 */
 
 const fetchWeather = (city) => () => {
-  return fetch(`${process.env.REACT_APP_BACKEND}/api/weather?city=${city}`).then((res) =>
-    res.json()
-  );
+  return WidgetService.getWeather(city);
 };
 
 const Weather = (config) => {

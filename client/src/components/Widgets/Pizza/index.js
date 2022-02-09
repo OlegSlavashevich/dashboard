@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Widget from '../../UI/Widget';
 import { useQuery } from 'react-query';
 import { pizzasImages } from '../../../configs/widgetConfig';
+import { WidgetService } from '../../../services/WidgetService';
 
 /**
   config: {
@@ -21,36 +22,7 @@ import { pizzasImages } from '../../../configs/widgetConfig';
 */
 
 const fetchPizza = (params) => () => {
-  return fetch(`${process.env.REACT_APP_BACKEND}/api/pizza?name=${params.name}`, {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json'
-    },
-    body: JSON.stringify(params)
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.blob();
-      }
-      throw new Error('Failed file generation');
-    })
-    .then((blob) => {
-      console.log(blob);
-      const fileBlob = new Blob([blob], {
-        type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-      });
-      // saveAs(fileBlob, 'result.docx');
-      const url = window.URL || window.webkitURL;
-      const downloadUrl = url.createObjectURL(fileBlob);
-
-      const a = document.createElement('a');
-      a.style.display = 'none';
-      a.href = downloadUrl;
-
-      a.download = `pizza.jpeg`;
-      document.body.appendChild(a);
-      a.click();
-    });
+  return WidgetService.orderPizza(params);
 };
 
 const Pizza = (config) => {

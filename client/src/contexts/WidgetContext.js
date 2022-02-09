@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
 import React, { useContext, useEffect, useState } from 'react';
+import { WidgetService } from '../services/WidgetService';
 
 const WidgetContext = React.createContext();
 
@@ -16,9 +17,7 @@ export const WidgetProvider = ({ children }) => {
 
   const getWidgetsFromApi = async () => {
     setIsLoading(true);
-    const widgetsFromApi = await fetch(`${process.env.REACT_APP_BACKEND}/api/widgets`).then((res) =>
-      res.json()
-    );
+    const widgetsFromApi = await WidgetService.getAllWidgets();
     setWidgets(widgetsFromApi);
     setIsLoading(false);
   };

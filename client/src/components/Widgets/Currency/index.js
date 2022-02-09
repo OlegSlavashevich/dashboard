@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Widget from '../../UI/Widget';
 import { useQuery } from 'react-query';
 import { useWidget } from '../../../contexts/WidgetContext';
+import { WidgetService } from '../../../services/WidgetService';
 
 /**
   config: {
@@ -16,9 +17,7 @@ import { useWidget } from '../../../contexts/WidgetContext';
 */
 
 const fetchCurrency = (base, target) => () => {
-  return fetch(`${process.env.REACT_APP_BACKEND}/api/currency?base=${base}&target=${target}`)
-    .then((res) => res.json())
-    .then((data) => data.ratio);
+  return WidgetService.getCurrency(base, target);
 };
 
 const Currency = (config) => {

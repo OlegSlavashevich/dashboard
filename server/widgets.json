@@ -72,9 +72,9 @@
   {
     "id": "weather_1644394376485",
     "type": "weather",
-    "refetchInterval": 0,
+    "refetchInterval": 30000,
     "params": {
-      "city": "Vitebsk"
+      "city": "Grodno"
     }
   }
 ]
