@@ -2,7 +2,7 @@
   {
     "id": "currency_1644394177891",
     "type": "currency",
-    "refetchInterval": 0,
+    "refetchInterval": 5000,
     "params": {
       "base": "EUR",
       "target": "USD"
@@ -70,11 +70,11 @@
     }
   },
   {
-    "id": "weather_1644394376485",
+    "id": "weather_1645445432937",
     "type": "weather",
-    "refetchInterval": 30000,
+    "refetchInterval": 0,
     "params": {
-      "city": "Grodno"
+      "city": "Vitebsk"
     }
   }
 ]
